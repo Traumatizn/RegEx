@@ -1,16 +1,10 @@
-***Version: 1.1.1***
+***Version: 1.1.2***
 
 # URL RegEx Pattern Matchers
 
-### Primary
-Regular Expression for Matching URLs (EXPERIMENTAL - 4835 steps):
+Regular Expression for Matching URLs (EXPERIMENTAL):
 ```
-((?:(?:(?:https?\:\/\/){0,1}(?:[a-zA-Z0-9\%]{1,}\:[a-zA-Z0-9\%]{1,}[@]){,1})(?:(?:\w{1,}\.{1}){1,5}(?:(?:[a-zA-Z]){1,})|(?:localhost\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\:[0-9]{1,4}){1})){1}(?:(?:(?:\/{0,1}(?:[a-zA-Z0-9\-]){1,})*)(?:[?][a-zA-Z0-9\=\%\&]{1,}){0,1}))
-```
-
-Or, if you require a local URL's domain to be something other than 'localhost' (4868 steps):
-```
-((?:(?:(?:https?\:\/\/){0,1}(?:[a-zA-Z0-9\%]{1,}\:[a-zA-Z0-9\%]{1,}[@]){,1})(?:(?:\w{1,}\.{1}){1,5}(?:(?:[a-zA-Z]){1,})|(?:[a-zA-Z]{1,}\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\:[0-9]{1,4}){1})){1}(?:(?:(?:\/{0,1}(?:[a-zA-Z0-9\-]){1,})*)(?:[?][a-zA-Z0-9\=\%\&]{1,}){0,1}))
+((?:(?<=[^a-zA-Z0-9]){0,}(?:(?:https?\:\/\/){0,1}(?:[a-zA-Z0-9\%]{1,}\:[a-zA-Z0-9\%]{1,}[@]){,1})(?:(?:\w{1,}\.{1}){1,5}(?:(?:[a-zA-Z]){1,})|(?:[a-zA-Z]{1,}\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\:[0-9]{1,4}){1})){1}(?:(?:(?:\/{0,1}(?:[a-zA-Z0-9\-\_\=\-]){1,})*)(?:[?][a-zA-Z0-9\=\%\&\_\-]{1,}){0,1})(?:\.(?:[a-zA-Z0-9]){0,}){0,1})
 ```
 
 
@@ -30,18 +24,10 @@ Matches with:
 - https://username:password@localhost/10.0.0.1:8080
 - https://localhost/10.0.0.1:8080
 - localhost/10.0.0.1:8080
+- https://example.com/first/second/file.html
+- https://www.youtube.com/watch?v=4XL74eIIRkM&t=1s
 
 ---
-### Secondary
-This also captures URLs within sentences & paragraphs.
-```
-((?:(?<=[^a-zA-Z0-9]){0,}(?:(?:https?\:\/\/){0,1}(?:[a-zA-Z0-9\%]{1,}\:[a-zA-Z0-9\%]{1,}[@]){,1})(?:(?:\w{1,}\.{1}){1,5}(?:(?:[a-zA-Z]){1,})|(?:localhost\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\:[0-9]{1,4}){1})){1}(?:(?:(?:\/{0,1}(?:[a-zA-Z0-9\-]){1,})*)(?:[?][a-zA-Z0-9\=\%\&]{1,}){0,1}))
-```
-
-Or, if you require a local URL's domain to be something other than 'localhost':
-```
-((?:(?<=[^a-zA-Z0-9]){0,}(?:(?:https?\:\/\/){0,1}(?:[a-zA-Z0-9\%]{1,}\:[a-zA-Z0-9\%]{1,}[@]){,1})(?:(?:\w{1,}\.{1}){1,5}(?:(?:[a-zA-Z]){1,})|(?:[a-zA-Z]{1,}\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\:[0-9]{1,4}){1})){1}(?:(?:(?:\/{0,1}(?:[a-zA-Z0-9\-]){1,})*)(?:[?][a-zA-Z0-9\=\%\&]{1,}){0,1}))
-```
 
 ### Known Issues:
 - These patterns do not check for numeric min/max values (ie, max of '255' in IP Address). This may come in an update later, if requested.
