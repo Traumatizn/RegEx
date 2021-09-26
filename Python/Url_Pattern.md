@@ -42,3 +42,7 @@ Or, if you require a local URL's domain to be something other than 'localhost':
 ```
 ((?:(?<=[^a-zA-Z0-9]){0,}(?:(?:https?\:\/\/){0,1}(?:[a-zA-Z0-9\%]{1,}\:[a-zA-Z0-9\%]{1,}[@]){,1})(?:(?:\w{1,}\.{1}){1,5}(?:(?:[a-zA-Z]){1,})|(?:[a-zA-Z]{1,}\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\:[0-9]{1,4}){1})){1}(?:(?:(?:\/{0,1}(?:[a-zA-Z0-9\-]){1,})*)(?:[?][a-zA-Z0-9\=\%\&]{1,}){0,1}))
 ```
+
+### Known Issues:
+- These patterns do not check for numeric min/max values (ie, max of '255' in IP Address). This may come in an update later, if requested.
+- More testing is required to further identify and understand any other issues, if any.
